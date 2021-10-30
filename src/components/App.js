@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Button}from 'react-bootstrap'
-
+import Gift from './Gift'
 export default class App extends Component {
     constructor(){
         super();
@@ -14,7 +14,10 @@ export default class App extends Component {
         gifts.push({id:gifts.length+1})
         this.setState(gifts);
     }
-
+    removeGifts= (id)=>{
+        const gifts = this.state.gifts.filter((gift)=> gift.id !== id );
+        this.setState({gifts});
+    }
     render() {
         return (
             <div>
@@ -22,7 +25,7 @@ export default class App extends Component {
                 <div className='gift-list'>
                     {
                         this.state.gifts.map((gift)=>{
-                            return (<div key={gift.id} >{gift.id}</div>)
+                            return (<Gift key={gift.id} gift={gift} removeGift={this.removeGifts}/>)
                         })
                     }
                 </div>
