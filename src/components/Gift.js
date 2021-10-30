@@ -10,16 +10,17 @@ export default class Gift extends Component {
     }
     render() {
         return (
-            <div>
+            <div className='gift'>
+                
                 <Form>
-                    <FormGroup>
+                    <FormGroup className="mb-3">
                         <FormLabel>Person Name</FormLabel>
                         <FormControl 
                         className='input-person'
                         onChange={(e)=>this.setState({person:e.target.value})}
                         />
                     </FormGroup>
-                    <FormGroup>
+                    <FormGroup className="mb-3">
                         <FormLabel>
                             present
                         </FormLabel>
